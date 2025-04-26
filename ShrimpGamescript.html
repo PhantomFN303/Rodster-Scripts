@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrimp Game Script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: white; /* White text */
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .image-top {
+            width: 50%; /* Image width smaller (50% of the screen) */
+            height: 500px; /* Image height taller */
+            background-image: url('image1.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+        .text-area {
+            width: 80%;
+            height: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #000; /* Black background for the text area */
+            color: white; /* White text in the text area */
+            border: 1px solid #ddd;
+            font-family: monospace;
+            font-size: 16px;
+            resize: none;
+            pointer-events: none; /* Prevent editing */
+        }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .copy-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-top"></div> <!-- Image placed at the top -->
+    <div class="container">
+        <p style="color: white;">SHRIMP GAME ROBLOX SCRIPT (2025)</p>
+        <textarea class="text-area" id="scriptText" readonly>
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/ShrimpGame.lua"))()
+        </textarea>
+        <br>
+        <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const textArea = document.getElementById('scriptText');
+            textArea.select();
+            textArea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            
+            const copyBtn = document.getElementById('copyBtn');
+            copyBtn.textContent = 'Copied'; // Change button text to "Copied"
+            
+            // Reset button text back to "Copy to Clipboard" after 1 second
+            setTimeout(function() {
+                copyBtn.textContent = 'Copy to Clipboard';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

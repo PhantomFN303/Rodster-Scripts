@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dex Explorer Script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: white; /* White text */
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .image-top {
+            width: 300px; /* wider width */
+            height: 350px; /* taller height */
+            background-image: url('image2.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        .text-below {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        .text-area {
+            width: 80%;
+            height: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #000; /* Black background */
+            border: 1px solid #ddd;
+            font-family: monospace;
+            font-size: 16px;
+            color: #fff; /* White text inside */
+            resize: none;
+            pointer-events: none; /* Prevent editing */
+        }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .copy-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-top"></div> <!-- Image placed at the top -->
+    <div class="container">
+        <div class="text-below">DEX EXPLORER SCRIPT (2025)</div>
+        <textarea class="text-area" id="scriptText" readonly>
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BigBoyTimme/New.Loadstring.Scripts/refs/heads/main/Dex.Explorer"))()
+        </textarea>
+        <br>
+        <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const textArea = document.getElementById('scriptText');
+            textArea.select();
+            textArea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+
+            const button = document.querySelector('.copy-btn');
+            const originalText = button.innerText;
+            button.innerText = "Copied";
+            setTimeout(() => {
+                button.innerText = originalText;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
